@@ -17,7 +17,6 @@ using Solution.IRepositories;
 using Solution.Domain.IServices;
 using Solution.Services;
 using Solution.Persistence.Repositories;
-
 namespace Solution
 {
     public class Startup
@@ -33,14 +32,11 @@ namespace Solution
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<AppDbContext>(options=>{
-                options.UseSqlServer(Configuration.GetConnectionString("AppDbContext"));
-            });
+            services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ExamAPI;Integrated Security=True"));
             services.AddScoped<IGameService,GameService>();
             services.AddScoped<IGenreService,GenreService>();
             services.AddScoped<IGameRepository,GameRepository>();
             services.AddScoped<IGenreRepository,GenreRepository>();
-            services.AddScoped<IGameService,GameService>();
             services.AddScoped<AppDbContext,AppDbContext>();
             /*services.
             services.

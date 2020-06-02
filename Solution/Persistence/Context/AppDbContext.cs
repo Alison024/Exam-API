@@ -11,7 +11,9 @@ namespace Solution.Persistence.Context
         public DbSet<Game> Games{get;set;}
         public DbSet<Genre> Genres{get;set;}
         public DbSet<Customer> Customers{get;set;}
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options){}
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options){
+            //Database.EnsureCreatedAsync();
+        }
         protected override void OnModelCreating(ModelBuilder builder){
             base.OnModelCreating(builder);
             builder.Entity<Game>().ToTable("Games");
@@ -25,11 +27,11 @@ namespace Solution.Persistence.Context
             builder.Entity<Genre>().HasKey(x=>x.GenreId);
             builder.Entity<Genre>().Property(x=>x.GenreId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Genre>().Property(x=>x.Name).IsRequired();
-            builder.Entity<Genre>().HasData(
-                new Genre{GenreId = 1,Name="Action"},
-                new Genre{GenreId = 2,Name="RPG"},
-                new Genre{GenreId = 3,Name="MMO"}
-            );
+            /*builder.Entity<Genre>().HasData(
+                new Genre{GenreId = 1000,Name="Action"},
+                new Genre{GenreId = 2000,Name="RPG"},
+                new Genre{GenreId = 3000,Name="MMO"}
+            );*/
         }  
     }
 }

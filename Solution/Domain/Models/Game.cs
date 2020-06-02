@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Solution.Domain.Models
 {
-    [Table("Games")]
+    
     public class Game
     {
         public int GameId{get;set;}
