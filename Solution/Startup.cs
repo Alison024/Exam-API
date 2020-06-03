@@ -17,6 +17,7 @@ using Solution.IRepositories;
 using Solution.Domain.IServices;
 using Solution.Services;
 using Solution.Persistence.Repositories;
+using AutoMapper;
 namespace Solution
 {
     public class Startup
@@ -38,10 +39,8 @@ namespace Solution
             services.AddScoped<IGameRepository,GameRepository>();
             services.AddScoped<IGenreRepository,GenreRepository>();
             services.AddScoped<AppDbContext,AppDbContext>();
-            /*services.
-            services.
-            services.
-            services.*/
+            services.AddAutoMapper(typeof(Startup));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

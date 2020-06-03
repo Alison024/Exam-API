@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "11yhcOD+/qsDBZBDNMM00EfqtTYkJnQ0WQ+rG0Aw73+MPqXSg/mbRMgQgIkY9Dyhx5LUtFj82BdQe9uUVzzqSQ==",
+  "dgSpecHash": "bc61Ng8/UPT80CWFIosw2bSdbMqJTh0sdGmalSD5tqfyN7nETS1YrZjR5LXS5HQG/kNZK2JtkFI3jmiJLp67Mw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
