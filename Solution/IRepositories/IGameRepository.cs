@@ -5,9 +5,7 @@ namespace Solution.IRepositories
 {
     public interface IGameRepository
     {
-        Task<IEnumerable<Game>> GetAllAsync();
-        Task AddAsync(Game game);
-        void Update(Game game);
-        Task<Game> FindByIdAsync(int id);
+         Task<IEnumerable<Game>> GetAllAsync();
+         Task AddAsync(Game game);
     }
 }

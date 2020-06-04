@@ -5,8 +5,6 @@ using Solution.Domain.IServices;
 using Solution.Resources;
 using System.Threading.Tasks;
 using AutoMapper;
-using Solution.Extensions;
-using Solution.Mapping;
 namespace Solution.Controllers
 {
     [Route("/api/games")]
@@ -24,20 +22,6 @@ namespace Solution.Controllers
             var games = await gameServices.GetAllAsync();
             var gameResources = mapper.Map<IEnumerable<Game>,IEnumerable<GameResource>>(games);
             return gameResources;
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync (int id, [FromBody] SaveGameResource resource){
-            if(!ModelState.IsValid){
-                return BadRequest(ModelState.GetErrorMessages());
-            }
-            var game = mapper.Map<SaveGameResource,Game>(resource);
-            var result = await gameServices.UpdateAsync(id,game);
-            if(!result.IsSuccess){
-                return BadRequest(result.Message);
-            }
-            var gameResources = mapper.Map<Game,GameResource>(result.Game);
-            return Ok(gameResources);
         }
     }
 }
