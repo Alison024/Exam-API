@@ -6,5 +6,6 @@ namespace Solution.IRepositories
     public interface IGenreRepository
     {
          Task<IEnumerable<Genre>> GetAllAsync();
+         Task AddAsync(Genre genre);
     }
 }

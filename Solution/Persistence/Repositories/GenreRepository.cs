@@ -14,6 +14,11 @@ namespace Solution.IRepositories
         {
         }
 
+        public async Task AddAsync(Genre genre)
+        {
+            await context.Genres.AddAsync(genre);
+        }
+
         public async Task<IEnumerable<Genre>> GetAllAsync()
         {
             return await context.Genres.ToListAsync();

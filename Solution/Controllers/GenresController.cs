@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Solution.Domain.Models;
 using Solution.Domain.IServices;
+using Solution.Domain.Responses;
 using Solution.Resources;
 using System.Threading.Tasks;
 using Solution.Extensions;
@@ -30,7 +31,13 @@ namespace Solution.Controllers
                 return BadRequest(ModelState.GetErrorMessages());
             }
             var genres = mapper.Map<SaveGenreResource,Genre>(resource);
-            //var result = await genreServices.Sa
+            var result = await genreServices.SaveAsync(genres);
+            if(!result.IsSuccess)
+            {
+                return BadRequest(result.Message);
+            }
+            var genreResources = mapper.Map<Genre,GenreResource>(result.Genre);
+            return Ok(genreResources);
         }
     }
 }

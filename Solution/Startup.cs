@@ -39,6 +39,7 @@ namespace Solution
             services.AddScoped<IGameRepository,GameRepository>();
             services.AddScoped<IGenreRepository,GenreRepository>();
             services.AddScoped<AppDbContext,AppDbContext>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));
             
         }

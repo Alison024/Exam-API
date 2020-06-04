@@ -1,1 +1,9 @@
-GET https://localhost:5001/weatherforecast
+GET https://localhost:5001/api/genres
+
+
+//POST https://localhost:5001/api/genres
+//Content-Type: application/json
+
+// {
+ //    "name" : "Simulator"
+ //}
