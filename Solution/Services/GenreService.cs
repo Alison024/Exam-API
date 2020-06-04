@@ -35,5 +35,22 @@ namespace Solution.Services
             }
             
         }
+
+        public async Task<SaveGenreResponse> UpdateAsync(int id, Genre genre)
+        {
+            var exsGenre = await genreRepository.FindByIdAsync(id);
+            if(exsGenre==null){
+                return new SaveGenreResponse("Genre not found");
+            }
+            exsGenre.Name = genre.Name;
+            exsGenre.Description = genre.Description;
+            try{
+                genreRepository.Update(exsGenre);
+                await unitOfWork.CompleteAsync();
+                return new SaveGenreResponse(exsGenre);
+            }catch(Exception ex){
+                return new SaveGenreResponse($"Error when updating game:{ex.Message}");
+            }
+        }
     }
 }

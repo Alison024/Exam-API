@@ -39,5 +39,19 @@ namespace Solution.Controllers
             var genreResources = mapper.Map<Genre,GenreResource>(result.Genre);
             return Ok(genreResources);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync (int id, [FromBody] SaveGenreResource resource){
+            if(!ModelState.IsValid){
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+            var genre = mapper.Map<SaveGenreResource,Genre>(resource);
+            var result = await genreServices.UpdateAsync(id,genre);
+            if(!result.IsSuccess){
+                return BadRequest(result.Message);
+            }
+            var genreResources = mapper.Map<Genre,GenreResource>(result.Genre);
+            return Ok(genreResources);
+        }
     }
 }

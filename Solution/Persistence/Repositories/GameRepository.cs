@@ -19,9 +19,19 @@ namespace Solution.Persistence.Repositories
             await context.Games.AddAsync(game);
         }
 
+        public async Task<Game> FindByIdAsync(int id)
+        {
+            return await context.Games.FindAsync(id);
+        }
+
         public async Task<IEnumerable<Game>> GetAllAsync()
         {
             return await context.Games.ToListAsync();
+        }
+
+        public void Update(Game game)
+        {
+            context.Games.Update(game);
         }
     }
 }
