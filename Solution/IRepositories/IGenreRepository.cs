@@ -7,5 +7,8 @@ namespace Solution.IRepositories
     {
          Task<IEnumerable<Genre>> GetAllAsync();
          Task AddAsync(Genre genre);
+         void Update(Genre genre);
+         Task<Genre> FindById(int id);
+         void Delete(Genre genre);
     }
 }

@@ -7,5 +7,8 @@ namespace Solution.IRepositories
     {
          Task<IEnumerable<Game>> GetAllAsync();
          Task AddAsync(Game game);
+          void Update(Game game);
+         Task<Game> FindById(int id);
+         void Delete(Game game);
     }
 }

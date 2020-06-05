@@ -26,11 +26,11 @@ namespace Solution.Controllers
             return genreResources;
         }
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] SaveGenreResource resource){
+        public async Task<IActionResult> PostAsync([FromBody] GenreResource resource){
             if(!ModelState.IsValid){
                 return BadRequest(ModelState.GetErrorMessages());
             }
-            var genres = mapper.Map<SaveGenreResource,Genre>(resource);
+            var genres = mapper.Map<GenreResource,Genre>(resource);
             var result = await genreServices.SaveAsync(genres);
             if(!result.IsSuccess)
             {
@@ -38,6 +38,32 @@ namespace Solution.Controllers
             }
             var genreResources = mapper.Map<Genre,GenreResource>(result.Genre);
             return Ok(genreResources);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] GenreResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var category = mapper.Map<GenreResource, Genre>(resource);
+            var result = await genreServices.UpdateAsync(id, category);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            
+            var categoryResource = mapper.Map<Genre, GenreResource>(result.Genre);
+            return Ok(categoryResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await genreServices.DeleteAsync(id);
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            
+            var categoryResource = mapper.Map<Genre, GenreResource>(result.Genre);
+            return Ok(categoryResource);
         }
     }
 }

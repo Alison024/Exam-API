@@ -6,10 +6,10 @@ namespace Solution.Mapping
     public class SaveResourceModelProfile:Profile
     {
         public SaveResourceModelProfile(){
-            CreateMap<SaveGameResource,Game>();
-            CreateMap<SaveGenreResource,Genre>();
-            CreateMap<Game,SaveGameResource>();
-            CreateMap<Genre,SaveGenreResource>();
+            CreateMap<GameResource,Game>();
+            CreateMap<GenreResource,Genre>();
+            CreateMap<Game,GameResource>();
+            CreateMap<Genre,GenreResource>();
         }
     }
 }

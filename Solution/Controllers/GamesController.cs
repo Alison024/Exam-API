@@ -4,6 +4,7 @@ using Solution.Domain.Models;
 using Solution.Domain.IServices;
 using Solution.Resources;
 using System.Threading.Tasks;
+using Solution.Extensions;
 using AutoMapper;
 namespace Solution.Controllers
 {
@@ -22,6 +23,48 @@ namespace Solution.Controllers
             var games = await gameServices.GetAllAsync();
             var gameResources = mapper.Map<IEnumerable<Game>,IEnumerable<GameResource>>(games);
             return gameResources;
+        }
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] GameResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var category = mapper.Map<GameResource, Game>(resource);
+            var result = await gameServices.SaveAsync(category);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            
+            var categoryResource = mapper.Map<Game, GameResource>(result.Game);
+            return Ok(categoryResource);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] GameResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var category = mapper.Map<GameResource, Game>(resource);
+            var result = await gameServices.UpdateAsync(id, category);
+
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            
+            var categoryResource = mapper.Map<Game, GameResource>(result.Game);
+            return Ok(categoryResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await gameServices.DeleteAsync(id);
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            
+            var categoryResource = mapper.Map<Game, GameResource>(result.Game);
+            return Ok(categoryResource);
         }
     }
 }

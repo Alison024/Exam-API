@@ -7,6 +7,8 @@ namespace Solution.Domain.IServices
     public interface IGameService
     {
         Task <IEnumerable<Game>> GetAllAsync();
-        Task <SaveGameResponse> SaveAsync(Game game);
+        Task <GameResponse> SaveAsync(Game game);
+        Task<GameResponse> UpdateAsync(int id, Game game);
+        Task<GameResponse> DeleteAsync(int id);
     }
 }

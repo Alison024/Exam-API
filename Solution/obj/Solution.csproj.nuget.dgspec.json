@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {}
+    "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {
+    "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
+        "projectUniqueName": "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
         "projectName": "Solution",
-        "projectPath": "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
+        "projectPath": "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Exam API\\Exam-API\\Solution\\obj\\",
+        "outputPath": "d:\\Projects\\Exam API\\Exam-API\\Solution\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -50,6 +50,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

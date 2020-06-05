@@ -19,9 +19,24 @@ namespace Solution.IRepositories
             await context.Genres.AddAsync(genre);
         }
 
+        public void Delete(Genre genre)
+        {
+            context.Genres.Remove(genre);
+        }
+        
+        public async Task<Genre> FindById(int id)
+        {
+            return await context.Genres.FindAsync(id);
+        }
+
         public async Task<IEnumerable<Genre>> GetAllAsync()
         {
             return await context.Genres.ToListAsync();
+        }
+
+        public void Update(Genre genre)
+        {
+            context.Genres.Remove(genre);
         }
     }
 }
