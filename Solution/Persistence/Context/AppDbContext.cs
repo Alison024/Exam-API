@@ -33,11 +33,11 @@ namespace Solution.Persistence.Context
             builder.Entity<Genre>().Property(x=>x.GenreId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Genre>().Property(x=>x.Name).IsRequired();
 
-            builder.Entity<Genre>().HasData(
+            /*builder.Entity<Genre>().HasData(
                 new Genre{GenreId = 1000,Name="Action"},
                 new Genre{GenreId = 1001,Name="RPG"},
                 new Genre{GenreId = 1002,Name="MMO"}
-            );
+            );*/
             #endregion
             #region Role
             builder.Entity<Role>().ToTable("Roles");

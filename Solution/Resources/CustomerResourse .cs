@@ -10,7 +10,7 @@ namespace Solution.Resources
         public string Surname{get;set;}
         [Required]
         public string Login{get;set;}
-        [Required]
+        //[Required]
         public string Token{get;set;}
         public string[] Role {get;set;}
     }
