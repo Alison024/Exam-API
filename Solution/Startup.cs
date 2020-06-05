@@ -58,6 +58,10 @@ namespace Solution
             });
             
             services.AddDbContext<AppDbContext>(options=>options.UseSqlServer("Data Source=DESKTOP-VAOFU4A;Initial Catalog=ExamAPI;Integrated Security=True"));
+
+            services.AddScoped<ICustomerRepository, CusotmerRepository>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IGameService,GameService>();
             services.AddScoped<IGenreService,GenreService>();
             services.AddScoped<IGameRepository,GameRepository>();
