@@ -53,3 +53,11 @@ D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\runtimes\win\lib\
 D:\Projects\Exam API\Exam-API\Solution\obj\Debug\netcoreapp3.1\Solution.csproj.CopyComplete
 D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

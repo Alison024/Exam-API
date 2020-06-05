@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {}
+    "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {
+    "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
+        "projectUniqueName": "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
         "projectName": "Solution",
-        "projectPath": "d:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
+        "projectPath": "D:\\Projects\\Exam API\\Exam-API\\Solution\\Solution.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\Exam API\\Exam-API\\Solution\\obj\\",
+        "outputPath": "D:\\Projects\\Exam API\\Exam-API\\Solution\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
