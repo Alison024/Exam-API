@@ -7,8 +7,11 @@ using Solution.Resources;
 using System.Threading.Tasks;
 using Solution.Extensions;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Solution.Controllers
 {
+    [Authorize]
     [Route("/api/genres")]
     public class GenresController:Controller
     {

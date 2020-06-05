@@ -1,6 +1,7 @@
 #GET https://localhost:5001/api/genres
 #GET https://localhost:5001/api/games
-#GET https://localhost:5001/api/customers //почему роль ровна null ?
+#GET https://localhost:5001/api/customers 
+#почему роль ровна null ?
 
 //POST https://localhost:5001/api/genres
 //Content-Type: application/json
@@ -8,3 +9,22 @@
 // {
  //    "name" : "Simulator"
  //}
+
+
+
+ //Authorization
+
+#GET https://localhost:5001/api/genres
+#Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFuZHJleSIsInJvbGUiOiJVc2VyIiwibmJmIjoxNTkxMzk0MzQ5LCJleHAiOjE1OTEzOTQ0NjksImlhdCI6MTU5MTM5NDM0OX0.ys6XED3EPp6oObRetYUPdeEnWWOSvPVCtaEH1OKLMAs
+
+#POST localhost:5001/api/auth/authenticate
+#Content-Type: application/json
+#
+#{
+#    "Login":"Andreo",
+#    "Password": "123123"
+#}
+
+
+
+

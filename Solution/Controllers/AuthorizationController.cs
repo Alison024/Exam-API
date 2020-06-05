@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Solution.Controllers
 {
+    [Route("/api/auth")]
     public class AuthorizationController:Controller
     {
         private readonly IAuthService authService;
