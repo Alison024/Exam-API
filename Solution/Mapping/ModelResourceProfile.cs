@@ -11,6 +11,8 @@ namespace Solution.Mapping
             CreateMap<Game,GameResource>();
             CreateMap<GenreResource,Genre>();
             CreateMap<GameResource,Game>();
+            CreateMap<Customer,CustomerResourse>();
+            CreateMap<CustomerResourse,Customer>();
         }
     }
 }
