@@ -6,8 +6,11 @@ using Solution.Resources;
 using System.Threading.Tasks;
 using Solution.Extensions;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Solution.Controllers
 {
+    
     [Route("/api/games")]
     public class GamesController:Controller
     {
@@ -56,6 +59,7 @@ namespace Solution.Controllers
             return Ok(categoryResource);
         }
 
+        [Authorize(Roles="admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

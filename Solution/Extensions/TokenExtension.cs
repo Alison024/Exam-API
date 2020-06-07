@@ -16,8 +16,9 @@ namespace Solution.Extensions
 
             var claims = new List<Claim> 
             {
-                new Claim(ClaimTypes.Name, customer.Name)  
+                new Claim(ClaimTypes.Name, customer.Name)
             };
+            
             var roleClaims = customer.UserRoles.Select(x => new Claim(ClaimTypes.Role, x.Role.Name));
             claims.AddRange(roleClaims);
             var tokenDescriptor = new SecurityTokenDescriptor

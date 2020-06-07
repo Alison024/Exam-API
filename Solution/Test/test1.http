@@ -21,16 +21,18 @@ GET https://localhost:5001/api/Users
 
 ###
 GET https://localhost:5001/api/genres
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFuZHJleSIsInJvbGUiOiJVc2VyIiwibmJmIjoxNTkxMzk0MzQ5LCJleHAiOjE1OTEzOTQ0NjksImlhdCI6MTU5MTM5NDM0OX0.ys6XED3EPp6oObRetYUPdeEnWWOSvPVCtaEH1OKLMAs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZsYWQiLCJyb2xlIjpbImFkbWluIiwiY3VzdG9tZXIiLCJtYW5hZ2VyIl0sIm5iZiI6MTU5MTU2MjU1MSwiZXhwIjoxNTkxNTYyODUxLCJpYXQiOjE1OTE1NjI1NTF9.RTrLndT4YJhKIYvo2GWHEjWvDALURZ8Ck711NAvevPI
 ###
 POST localhost:5001/api/auth/authenticate
 Content-Type: application/json
 
 {
-    "Login":"Andreo",
-    "Password": "123123"
+    "Login":"int123",
+    "Password":"123456"
 }
 
-
+###
+DELETE    https://localhost:5001/api/games/1
+#Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZsYWQiLCJyb2xlIjpbImFkbWluIiwiY3VzdG9tZXIiLCJtYW5hZ2VyIl0sIm5iZiI6MTU5MTU2MjY3NCwiZXhwIjoxNTkxNTYyOTc0LCJpYXQiOjE1OTE1NjI2NzR9.iL1jXwK5F3QRArJ7FAxpTR44dAdxxf9_sSMPqq8nhQQ
 
 
