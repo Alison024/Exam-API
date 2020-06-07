@@ -8,7 +8,7 @@ namespace Solution.Domain.IServices
     {
         Task <IEnumerable<Genre>> GetAllAsync();
         Task <GenreResponse> SaveAsync(Genre genre);
-        Task<GenreResponse> UpdateAsync(int id, Genre genre);
+        Task<GenreResponse> UpdateAsync(Genre genre);
         Task<GenreResponse> DeleteAsync(int id);
     }
 }

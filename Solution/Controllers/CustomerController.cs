@@ -46,13 +46,13 @@ namespace Solution.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] AuthCustomerResourse resource)
+        public async Task<IActionResult> PutAsync([FromBody] AuthCustomerResourse resource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
             var customer = mapper.Map<AuthCustomerResourse, Customer>(resource);
-            var result = await customerService.UpdateAsync(id, customer);
+            var result = await customerService.UpdateAsync(customer);
 
             if (!result.IsSuccess)
                 return BadRequest(result.Message);

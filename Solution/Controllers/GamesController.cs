@@ -41,13 +41,13 @@ namespace Solution.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] GameResource resource)
+        public async Task<IActionResult> PutAsync([FromBody] GameResource resource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
             var category = mapper.Map<GameResource, Game>(resource);
-            var result = await gameServices.UpdateAsync(id, category);
+            var result = await gameServices.UpdateAsync(category);
 
             if (!result.IsSuccess)
                 return BadRequest(result.Message);

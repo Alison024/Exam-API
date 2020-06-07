@@ -52,9 +52,9 @@ namespace Solution.Services
             }
         }
 
-        public async Task<GameResponse> UpdateAsync(int id, Game game)
+        public async Task<GameResponse> UpdateAsync(Game game)
         {
-            var existingUser = await gameRepository.FindById(id);
+            var existingUser = await gameRepository.FindById(game.GameId);
             if (existingUser == null)
                 return new GameResponse("User not found");
            

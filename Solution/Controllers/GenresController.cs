@@ -43,13 +43,13 @@ namespace Solution.Controllers
             return Ok(genreResources);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] GenreResource resource)
+        public async Task<IActionResult> PutAsync([FromBody] GenreResource resource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
 
             var category = mapper.Map<GenreResource, Genre>(resource);
-            var result = await genreServices.UpdateAsync(id, category);
+            var result = await genreServices.UpdateAsync(category);
 
             if (!result.IsSuccess)
                 return BadRequest(result.Message);

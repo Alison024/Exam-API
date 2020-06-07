@@ -8,7 +8,7 @@ namespace Solution.Domain.IServices
     {
         Task <IEnumerable<Game>> GetAllAsync();
         Task <GameResponse> SaveAsync(Game game);
-        Task<GameResponse> UpdateAsync(int id, Game game);
+        Task<GameResponse> UpdateAsync(Game game);
         Task<GameResponse> DeleteAsync(int id);
     }
 }

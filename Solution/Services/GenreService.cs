@@ -54,9 +54,9 @@ namespace Solution.Services
             
         }
 
-        public async Task<GenreResponse> UpdateAsync(int id, Genre genre)
+        public async Task<GenreResponse> UpdateAsync(Genre genre)
         {
-            var existingUser = await genreRepository.FindById(id);
+            var existingUser = await genreRepository.FindById(genre.GenreId);
             if (existingUser == null)
                 return new GenreResponse("User not found");
             

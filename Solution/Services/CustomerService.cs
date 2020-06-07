@@ -25,7 +25,6 @@ namespace Solution.Services
             {
                 customerRepository.Delete(exsCustomer);
                 await unitOfWork.CompleteAsync();
-
                 return new CustomerResponse(exsCustomer);
             }
             catch (Exception ex)
@@ -45,7 +44,6 @@ namespace Solution.Services
             {
                 await customerRepository.AddAsync(customer);
                 await unitOfWork.CompleteAsync();
-
                 return new CustomerResponse(customer);
             }
             catch (Exception ex)
@@ -54,17 +52,15 @@ namespace Solution.Services
             }
         }
 
-        public async Task<CustomerResponse> UpdateAsync(int id, Customer customer)
+        public async Task<CustomerResponse> UpdateAsync(Customer customer)
         {
-            var existingUser = await customerRepository.FindById(id);
+            var existingUser = await customerRepository.FindById(customer.CustomerId);
             if (existingUser == null)
                 return new CustomerResponse("User not found");
-            
             try
             {
                 customerRepository.Update(existingUser);
                 await unitOfWork.CompleteAsync();
-
                 return new CustomerResponse(existingUser);
             }
             catch (Exception ex)
