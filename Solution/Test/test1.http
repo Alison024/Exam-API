@@ -27,12 +27,10 @@ POST localhost:5001/api/auth/authenticate
 Content-Type: application/json
 
 {
-    "Login":"int123",
-    "Password":"123456"
+    "Login":"LoveGame1",
+    "Password":"000000"
 }
 
 ###
-DELETE    https://localhost:5001/api/games/1
-#Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZsYWQiLCJyb2xlIjpbImFkbWluIiwiY3VzdG9tZXIiLCJtYW5hZ2VyIl0sIm5iZiI6MTU5MTU2MjY3NCwiZXhwIjoxNTkxNTYyOTc0LCJpYXQiOjE1OTE1NjI2NzR9.iL1jXwK5F3QRArJ7FAxpTR44dAdxxf9_sSMPqq8nhQQ
-
-
+DELETE https://localhost:5001/api/games/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ik5pa2l0YSIsInJvbGUiOiJjdXN0b21lciIsIm5iZiI6MTU5MTYyODgwMiwiZXhwIjoxNTkxNjI5MTAyLCJpYXQiOjE1OTE2Mjg4MDJ9.xOi3FKOGC52Ery9SfxfwYelTx2e5mz58Q3tjQY8O0-U

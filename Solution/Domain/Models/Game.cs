@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Solution.Domain.Models
@@ -11,6 +12,7 @@ namespace Solution.Domain.Models
         public int GenreId{get;set;}
         public Genre Genre {get;private set;}
         public string Description{get;set;}
+        IList<Sale> Sales{get;set;} = new List<Sale>();
         
     }
 }

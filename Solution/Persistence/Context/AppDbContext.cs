@@ -48,6 +48,52 @@ namespace Solution.Persistence.Context
                 new Genre{GenreId = 5,Name="RPG"}
             );
             #endregion
+            #region Tag
+            builder.Entity<Tag>().ToTable("Tags");
+            builder.Entity<Tag>().HasKey(x=>x.TagId);
+            builder.Entity<Tag>().Property(x=>x.TagId).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Tag>().HasAlternateKey(x=>x.Name);
+            builder.Entity<Tag>().Property(x=>x.Name).IsRequired();
+            builder.Entity<Tag>().HasData(
+                new Tag{TagId = 1,Name="Multiplayer"},
+                new Tag{TagId = 2,Name="Singleplayer"},
+                new Tag{TagId = 3,Name="Windows"},
+                new Tag{TagId = 4,Name="Linuks"},
+                new Tag{TagId = 5,Name="Mac OS"}
+            );
+            #endregion
+            #region GameTags
+            builder.Entity<GameTag>().ToTable("GameTags");
+            builder.Entity<GameTag>().HasKey(x => new {x.GameId, x.TagId});
+            builder.Entity<GameTag>().HasData(
+                new GameTag{GameId = 1, TagId = 1},
+                new GameTag{GameId = 1, TagId = 2},
+                new GameTag{GameId = 1, TagId = 3},
+                new GameTag{GameId = 2, TagId = 1},
+                new GameTag{GameId = 2, TagId = 2},
+                new GameTag{GameId = 2, TagId = 3},
+                new GameTag{GameId = 2, TagId = 4},
+                new GameTag{GameId = 2, TagId = 5},
+                new GameTag{GameId = 3, TagId = 2},
+                new GameTag{GameId = 3, TagId = 3},
+                new GameTag{GameId = 4, TagId = 2},
+                new GameTag{GameId = 4, TagId = 3},
+                new GameTag{GameId = 1, TagId = 2},
+                new GameTag{GameId = 1, TagId = 3},
+                new GameTag{GameId = 1, TagId = 5}
+            );
+            #endregion
+            #region GameGenres
+            builder.Entity<GameGenre>().ToTable("GameGenres");
+            builder.Entity<GameGenre>().HasKey(x => new {x.GameId, x.GenreId});
+            builder.Entity<GameGenre>().HasData(
+                new GameGenre{GameId = 1, GenreId = 1},
+                new GameGenre{GameId = 2, GenreId = 2},
+                new GameGenre{GameId = 3, GenreId = 3},
+                new GameGenre{GameId = 4, GenreId = 4},
+                new GameGenre{GameId = 5, GenreId = 5}
+            );
+            #endregion
             #region Role
             builder.Entity<Role>().ToTable("Roles");
             builder.Entity<Role>().HasKey(x => x.RoleId);
@@ -98,13 +144,22 @@ namespace Solution.Persistence.Context
             builder.Entity<CustomerRole>().ToTable("CustomerRoles");
             builder.Entity<CustomerRole>().HasKey(x => new {x.CustomerId, x.RoleId});
             builder.Entity<CustomerRole>().HasData(
-                new CustomerRole{CustomerId = 1, RoleId = 1},
                 new CustomerRole{CustomerId = 1, RoleId = 2},
+                new CustomerRole{CustomerId = 1, RoleId = 3},
                 new CustomerRole{CustomerId = 2, RoleId = 1},
                 new CustomerRole{CustomerId = 2, RoleId = 2},
-                new CustomerRole{CustomerId = 2, RoleId = 3},
-                new CustomerRole{CustomerId = 3, RoleId = 1}
+                new CustomerRole{CustomerId = 3, RoleId = 2}
             );
+            #endregion
+            #region Sales
+            builder.Entity<Sale>().ToTable("Sales");
+            builder.Entity<Sale>().HasKey(x => x.SaleId);
+            builder.Entity<Sale>().Property(x => x.SaleId).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Sale>().Property(x => x.Date).IsRequired();
+            builder.Entity<Sale>().Property(x => x.GameId).IsRequired();
+            builder.Entity<Sale>().Property(x => x.CustomerId).IsRequired();
+            //builder.Entity<Sale>().HasOne(x => x.Game).WithOne(y => y.Ga);
+            //builder.Entity<Sale>().HasData();
             #endregion
         }  
     }

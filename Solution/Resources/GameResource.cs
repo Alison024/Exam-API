@@ -10,7 +10,8 @@ namespace Solution.Resources
         [Required]
         public double Price{get;set;}
         [Required]
-        public int GenreId{get;set;}
+        public string[] Genres{get;set;}
+        public string[] Tags{get;set;}
         public string Description{get;set;}
     }
 }
