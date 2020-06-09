@@ -9,6 +9,6 @@ namespace Solution.Domain.Models
         public int GenreId{get;set;}
         public string Name{get;set;}
         public string Description{get;set;}
-        public IList<GameGenre> GameGenres = new List<GameGenre>();
+        public IList<GameGenre> GameGenres{get;set;} = new List<GameGenre>();
     }
 }

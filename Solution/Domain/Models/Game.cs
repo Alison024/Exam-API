@@ -9,10 +9,10 @@ namespace Solution.Domain.Models
         public int GameId{get;set;}
         public string Name{get;set;}
         public double Price{get;set;}
-        public int GenreId{get;set;}
-        public Genre Genre {get;private set;}
+        public IList<GameGenre> GameGenres{get;set;} = new List<GameGenre>();
+        public IList<GameTag> GameTags{get;set;} = new List<GameTag>();
         public string Description{get;set;}
-        IList<Sale> Sales{get;set;} = new List<Sale>();
+        public Sale Sale{get;set;}
         
     }
 }

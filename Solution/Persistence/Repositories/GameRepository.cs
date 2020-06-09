@@ -31,7 +31,7 @@ namespace Solution.Persistence.Repositories
 
         public async Task<IEnumerable<Game>> GetAllAsync()
         {
-            return await context.Games.ToListAsync();
+            return await context.Games.Include(x=>x.GameGenres).ThenInclude(y=>y.Genre).Include(w=>w.GameTags).ThenInclude(z=>z.Tag).ToListAsync();//.Include(w=>w.GameTags).ThenInclude(z=>z.Tag)
         }
 
         public void Update(Game game)

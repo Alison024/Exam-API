@@ -1,15 +1,17 @@
+using System.Linq;
 using AutoMapper;
 using Solution.Domain.Models;
 using Solution.Resources;
-namespace Solution.Mapping
+namespace Suka   //Solution.Mapping
 {
-    public class SaveResourceModelProfile:Profile
+    public class SaveResourceModelProfile//:Profile
     {
-        public SaveResourceModelProfile(){
+        /*public SaveResourceModelProfile(){
             CreateMap<GameResource,Game>();
             CreateMap<GenreResource,Genre>();
-            CreateMap<Game,GameResource>();
-            CreateMap<Genre,GenreResource>();
-        }
+            CreateMap<Game,GameResource>().ForMember(t=>t.Tags, arr=>arr.MapFrom(x=>x.GameTags.Select(y=>y.Tag.Name)));
+            //CreateMap<Game,GameResource>().ForMember(g=>g.Genres, arr=>arr.MapFrom(x=>x.GameGenres.Select(y=>y.Genre.Name)));
+        
+        }*/
     }
 }

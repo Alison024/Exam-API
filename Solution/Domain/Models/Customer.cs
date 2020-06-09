@@ -13,5 +13,6 @@ namespace Solution.Domain.Models
         public string Password{get;set;}
         public string Token{get;set;}
         public IList<CustomerRole> UserRoles{get;set;} = new List<CustomerRole>();
+        public Sale Sale{get;set;}
     }
 }

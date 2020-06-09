@@ -9,7 +9,6 @@ namespace Solution.Resources
         public string Name{get;set;}
         [Required]
         public double Price{get;set;}
-        [Required]
         public string[] Genres{get;set;}
         public string[] Tags{get;set;}
         public string Description{get;set;}

@@ -14,25 +14,27 @@ namespace Solution.Persistence.Context
         public DbSet<Customer> Customers{get;set;}
         public DbSet<Role> Roles{get;set;}
         public DbSet<CustomerRole> UserRoles { get; set; }
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options){
-            //Database.EnsureCreatedAsync();
-        }
+        public DbSet<GameGenre> GameGenres { get; set; }
+        public DbSet<GameTag> GameTags { get; set; }
+        public DbSet<Sale> Sales { get; set; } 
+        public AppDbContext(DbContextOptions<AppDbContext> options):base(options){}
         protected override void OnModelCreating(ModelBuilder builder){
             base.OnModelCreating(builder);
 
-            #region Game
+             #region Game
             builder.Entity<Game>().ToTable("Games");
             builder.Entity<Game>().HasKey(x=>x.GameId);
             builder.Entity<Game>().Property(x=>x.GameId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Game>().Property(x=>x.Name).IsRequired();
             builder.Entity<Game>().Property(x=>x.Price).IsRequired();
-            builder.Entity<Game>().Property(x=>x.GenreId).IsRequired();
+            builder.Entity<Game>().HasMany(x => x.GameTags).WithOne(x => x.Game);//.OnDelete(DeleteBehavior.SetNull);
+            builder.Entity<Game>().HasMany(y => y.GameGenres).WithOne(y => y.Game);//.OnDelete(DeleteBehavior.SetNull);
             builder.Entity<Game>().HasData(
-                new Game{GameId = 1, Name = "Call of Duty", Price = 30, GenreId=1, Description = null},
-                new Game{GameId = 2, Name = "StarCraft II: Wings of Liberty", Price = 20, GenreId=2, Description = null},
-                new Game{GameId = 3, Name = "Metal gear rising: revengeance", Price = 15, GenreId=3, Description = null},
-                new Game{GameId = 4, Name = "Dead Cells", Price = 30, GenreId=4, Description = null},
-                new Game{GameId = 5, Name = "The Elder Scrolls V: Skyrim", Price = 45, GenreId=5, Description = null}
+                new Game{GameId = 1, Name = "Call of Duty", Price = 30, Description = null},
+                new Game{GameId = 2, Name = "StarCraft II: Wings of Liberty", Price = 20, Description = null},
+                new Game{GameId = 3, Name = "Metal gear rising: revengeance", Price = 15, Description = null},
+                new Game{GameId = 4, Name = "Dead Cells", Price = 30, Description = null},
+                new Game{GameId = 5, Name = "The Elder Scrolls V: Skyrim", Price = 45, Description = null}
             );
             #endregion
             #region Genre
@@ -40,6 +42,7 @@ namespace Solution.Persistence.Context
             builder.Entity<Genre>().HasKey(x=>x.GenreId);
             builder.Entity<Genre>().Property(x=>x.GenreId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Genre>().Property(x=>x.Name).IsRequired();
+            builder.Entity<Genre>().HasMany(x => x.GameGenres).WithOne(x => x.Genre);
             builder.Entity<Genre>().HasData(
                 new Genre{GenreId = 1,Name="Action"},
                 new Genre{GenreId = 2,Name="Strategy"},
@@ -54,6 +57,7 @@ namespace Solution.Persistence.Context
             builder.Entity<Tag>().Property(x=>x.TagId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Tag>().HasAlternateKey(x=>x.Name);
             builder.Entity<Tag>().Property(x=>x.Name).IsRequired();
+            builder.Entity<Tag>().HasMany(x => x.GameTags).WithOne(x => x.Tag);
             builder.Entity<Tag>().HasData(
                 new Tag{TagId = 1,Name="Multiplayer"},
                 new Tag{TagId = 2,Name="Singleplayer"},
@@ -77,10 +81,7 @@ namespace Solution.Persistence.Context
                 new GameTag{GameId = 3, TagId = 2},
                 new GameTag{GameId = 3, TagId = 3},
                 new GameTag{GameId = 4, TagId = 2},
-                new GameTag{GameId = 4, TagId = 3},
-                new GameTag{GameId = 1, TagId = 2},
-                new GameTag{GameId = 1, TagId = 3},
-                new GameTag{GameId = 1, TagId = 5}
+                new GameTag{GameId = 4, TagId = 3}
             );
             #endregion
             #region GameGenres
@@ -94,6 +95,8 @@ namespace Solution.Persistence.Context
                 new GameGenre{GameId = 5, GenreId = 5}
             );
             #endregion
+           
+            
             #region Role
             builder.Entity<Role>().ToTable("Roles");
             builder.Entity<Role>().HasKey(x => x.RoleId);
@@ -115,7 +118,7 @@ namespace Solution.Persistence.Context
             builder.Entity<Customer>().Property(x => x.Login).IsRequired();
             builder.Entity<Customer>().HasAlternateKey(x => x.Login);
             builder.Entity<Customer>().Property(x => x.Password).IsRequired();
-            builder.Entity<Customer>().HasMany(x => x.UserRoles).WithOne(x => x.Customer);
+            builder.Entity<Customer>().HasMany(x => x.UserRoles).WithOne(x => x.Customer);//.OnDelete(DeleteBehavior.SetNull);
             builder.Entity<Customer>().HasData(
                 new Customer{
                     CustomerId = 1,
@@ -158,8 +161,15 @@ namespace Solution.Persistence.Context
             builder.Entity<Sale>().Property(x => x.Date).IsRequired();
             builder.Entity<Sale>().Property(x => x.GameId).IsRequired();
             builder.Entity<Sale>().Property(x => x.CustomerId).IsRequired();
-            //builder.Entity<Sale>().HasOne(x => x.Game).WithOne(y => y.Ga);
-            //builder.Entity<Sale>().HasData();
+            builder.Entity<Sale>().HasOne(x => x.Game).WithOne(y => y.Sale).HasForeignKey<Sale>(z=>z.GameId);
+            builder.Entity<Sale>().HasOne(x => x.Customer).WithOne(y => y.Sale).HasForeignKey<Sale>(z=>z.CustomerId);
+            builder.Entity<Sale>().HasData(
+                new Sale{SaleId=1,Date = new DateTime(2020,5,28,22,40,5),GameId = 1, CustomerId = 3},
+                new Sale{SaleId=2,Date = new DateTime(2020,5,28,22,40,5),GameId = 2, CustomerId = 3},
+                new Sale{SaleId=3,Date = new DateTime(2020,5,28,23,55,0),GameId = 3, CustomerId = 3},
+                new Sale{SaleId=4,Date = new DateTime(2020,5,29,12,15,30),GameId = 5, CustomerId = 2},
+                new Sale{SaleId=5,Date = new DateTime(2020,5,30,11,5,55),GameId = 4, CustomerId = 1}
+            );
             #endregion
         }  
     }
