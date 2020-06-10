@@ -1,5 +1,4 @@
 using System;
-using System.Runtime;
 namespace Solution.Domain.Models
 {
     public class Sale
