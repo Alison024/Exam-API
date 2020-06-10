@@ -3,26 +3,8 @@ GET https://localhost:5001/api/genres
 GET https://localhost:5001/api/games
 ###
 GET https://localhost:5001/api/customers 
-#почему роль ровна null ?
-
 ###
-POST https://localhost:5001/api/users
-Content-Type: application/json
-
-{
-    "name" : "Simulator"
-}
-###
-GET https://localhost:5001/api/Users
-###
-
-
  //Authorization
-
-###
-GET https://localhost:5001/api/genres
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZsYWQiLCJyb2xlIjpbImFkbWluIiwiY3VzdG9tZXIiLCJtYW5hZ2VyIl0sIm5iZiI6MTU5MTU2MjU1MSwiZXhwIjoxNTkxNTYyODUxLCJpYXQiOjE1OTE1NjI1NTF9.RTrLndT4YJhKIYvo2GWHEjWvDALURZ8Ck711NAvevPI
-###
 POST localhost:5001/api/auth/authenticate
 Content-Type: application/json
 
@@ -30,7 +12,6 @@ Content-Type: application/json
     "Login":"LoveGame1",
     "Password":"000000"
 }
-
 ###
 DELETE https://localhost:5001/api/games/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ik5pa2l0YSIsInJvbGUiOiJjdXN0b21lciIsIm5iZiI6MTU5MTYyODgwMiwiZXhwIjoxNTkxNjI5MTAyLCJpYXQiOjE1OTE2Mjg4MDJ9.xOi3FKOGC52Ery9SfxfwYelTx2e5mz58Q3tjQY8O0-U

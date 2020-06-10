@@ -11,9 +11,10 @@ namespace Solution.Persistence.Context
     {
         public DbSet<Game> Games{get;set;}
         public DbSet<Genre> Genres{get;set;}
+        public DbSet<Tag> Tags{get;set;}
         public DbSet<Customer> Customers{get;set;}
         public DbSet<Role> Roles{get;set;}
-        public DbSet<CustomerRole> UserRoles { get; set; }
+        public DbSet<CustomerRole> CustomerRoles { get; set; }
         public DbSet<GameGenre> GameGenres { get; set; }
         public DbSet<GameTag> GameTags { get; set; }
         public DbSet<Sale> Sales { get; set; } 

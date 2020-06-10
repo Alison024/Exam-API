@@ -2,7 +2,6 @@ using Solution.Persistence.Context;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Solution.Domain.Models;
-using Solution.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Solution.IRepositories;
 
