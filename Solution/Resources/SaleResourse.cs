@@ -4,7 +4,9 @@ namespace Solution.Resources
     {
         public int SaleId{get;set;}
         public string Date{get;set;}
-        public string GameName{get;set;}
-        public string CustomerLogin{get;set;}
+        public int GameId{get;set;}
+        public string Game {get;set;}
+        public int CustomerId{get;set;}
+        public string Customer{get;set;}
     }
 }

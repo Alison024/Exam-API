@@ -66,6 +66,10 @@ namespace Solution
             services.AddScoped<IGenreService,GenreService>();
             services.AddScoped<IGameRepository,GameRepository>();
             services.AddScoped<IGenreRepository,GenreRepository>();
+            services.AddScoped<ITagRepository,TagsRepository>();
+            services.AddScoped<ITagService,TagService>();
+            services.AddScoped<ISaleRepository,SaleRepository>();
+            services.AddScoped<ISaleService,SaleService>();
             services.AddScoped<AppDbContext,AppDbContext>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));

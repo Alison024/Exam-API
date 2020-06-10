@@ -29,7 +29,7 @@ namespace Solution.Persistence.Repositories
 
         public async Task<IEnumerable<Sale>> GetAllAsync()
         {
-            return await context.Sales.ToListAsync();
+            return await context.Sales.Include(x=>x.Game).Include(y=>y.Customer).ToListAsync();
         }
 
         public void Update(Sale sale)

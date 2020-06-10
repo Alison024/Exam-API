@@ -17,6 +17,10 @@ namespace Solution.Mapping
             CreateMap<GameResource,Game>();
             CreateMap<Customer,CustomerResourse>().ForMember(cust=>cust.Role, arr=>arr.MapFrom(x=>x.UserRoles.Select(y=>y.Role.Name)));
             CreateMap<CustomerResourse,Customer>();
+            CreateMap<TagResourse,Tag>();
+            CreateMap<Tag,TagResourse>();
+            CreateMap<Sale,SaleResourse>().ForMember(game=>game.Game,name=>name.MapFrom(x=>x.Game.Name)).ForMember(cust=>cust.Customer, login=>login.MapFrom(y=>y.Customer.Login));
+            CreateMap<SaleResourse,Sale>();
         }
     }
 }

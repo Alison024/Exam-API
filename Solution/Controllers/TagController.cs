@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 namespace Solution.Controllers
 {
+    [Route("/api/tags")]
     public class TagController:Controller
     {
         private readonly ITagService tagService;

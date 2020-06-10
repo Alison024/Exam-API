@@ -4,6 +4,10 @@ GET https://localhost:5001/api/games
 ###
 GET https://localhost:5001/api/customers 
 ###
+GET https://localhost:5001/api/tags 
+###
+GET https://localhost:5001/api/sales 
+###
  //Authorization
 POST localhost:5001/api/auth/authenticate
 Content-Type: application/json
