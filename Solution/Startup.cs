@@ -70,6 +70,8 @@ namespace Solution
             services.AddScoped<ITagService,TagService>();
             services.AddScoped<ISaleRepository,SaleRepository>();
             services.AddScoped<ISaleService,SaleService>();
+            services.AddScoped<IRoleRepository,RoleRepository>();
+            services.AddScoped<IRoleService,RoleService>();
             services.AddScoped<AppDbContext,AppDbContext>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));

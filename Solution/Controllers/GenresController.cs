@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Solution.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/
     [Route("/api/genres")]
     public class GenresController:Controller
     {

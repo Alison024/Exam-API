@@ -8,6 +8,20 @@ GET https://localhost:5001/api/tags
 ###
 GET https://localhost:5001/api/sales 
 ###
+GET https://localhost:5001/api/roles 
+###
+DELETE  https://localhost:5001/api/genres/1
+###
+DELETE https://localhost:5001/api/games/1
+###
+DELETE https://localhost:5001/api/customers/1
+###
+DELETE https://localhost:5001/api/tags/1
+###
+DELETE https://localhost:5001/api/sales/3
+###
+DELETE https://localhost:5001/api/roles/3
+###
  //Authorization
 POST localhost:5001/api/auth/authenticate
 Content-Type: application/json

@@ -43,6 +43,7 @@ namespace Solution.Persistence.Context
             builder.Entity<Genre>().HasKey(x=>x.GenreId);
             builder.Entity<Genre>().Property(x=>x.GenreId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Genre>().Property(x=>x.Name).IsRequired();
+            builder.Entity<Genre>().HasAlternateKey(x=>x.Name);
             builder.Entity<Genre>().HasMany(x => x.GameGenres).WithOne(x => x.Genre);
             builder.Entity<Genre>().HasData(
                 new Genre{GenreId = 1,Name="Action"},
@@ -103,6 +104,7 @@ namespace Solution.Persistence.Context
             builder.Entity<Role>().HasKey(x => x.RoleId);
             builder.Entity<Role>().Property(x => x.RoleId).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Role>().Property(x => x.Name).IsRequired();
+            builder.Entity<Role>().HasAlternateKey(x => x.Name);
             builder.Entity<Role>().HasMany(x => x.UserRoles).WithOne(x => x.Role);
             builder.Entity<Role>().HasData(
                 new Role {RoleId = 1, Name="admin"},

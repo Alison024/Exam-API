@@ -59,7 +59,7 @@ namespace Solution.Controllers
             return Ok(categoryResource);
         }
 
-        [Authorize(Roles="admin")]
+        /*[Authorize(Roles="admin")]*/
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

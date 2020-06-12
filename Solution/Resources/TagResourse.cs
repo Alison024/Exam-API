@@ -5,7 +5,7 @@ namespace Solution.Resources
     public class TagResourse
     {
         [Required]
-        public int GenreId{get;set;}
+        public int TagId{get;set;}
         [Required]
         public string Name{get;set;}
         public string Description{get;set;}
