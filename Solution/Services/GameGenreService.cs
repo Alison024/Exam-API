@@ -16,9 +16,9 @@ namespace Solution.Services
             this.gameGenreRepository =gameGenreRepository;
         } 
 
-        public async Task<GameGenreResponse> DeleteAsync(int id)
+        public async Task<GameGenreResponse> DeleteAsync(GameGenre gameGenre)
         {
-            var existingGameGenre = await gameGenreRepository.FindById(id);
+            var existingGameGenre = await gameGenreRepository.FindByCompatibleKey(gameGenre.GameId,gameGenre.GenreId);
             if (existingGameGenre == null)
                 return new GameGenreResponse("Game genre not found");
             try
@@ -39,6 +39,11 @@ namespace Solution.Services
             return await gameGenreRepository.GetAllAsync();
         }
 
+        public async Task<IEnumerable<GameGenre>> GetGenresOfGame(int id)
+        {
+            return await gameGenreRepository.Find(id);
+        }
+
         public async Task<GameGenreResponse> SaveAsync(GameGenre gameGenre)
         {
             try{
@@ -52,9 +57,9 @@ namespace Solution.Services
             
         }
 
-        public async Task<GameGenreResponse> UpdateAsync(GameGenre gameTag)
+        public async Task<GameGenreResponse> UpdateAsync(GameGenre gameGenre)
         {
-            var existingGameGenre = await gameGenreRepository.FindById(gameTag.GameId);
+            var existingGameGenre = await gameGenreRepository.FindByCompatibleKey(gameGenre.GameId,gameGenre.GenreId);
             if (existingGameGenre == null)
                 return new GameGenreResponse("Game genre not found");
             

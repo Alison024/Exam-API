@@ -72,6 +72,16 @@ namespace Solution
             services.AddScoped<ISaleService,SaleService>();
             services.AddScoped<IRoleRepository,RoleRepository>();
             services.AddScoped<IRoleService,RoleService>();
+
+            services.AddScoped<IGameGenreRepository,GameGenreRepository>();
+            services.AddScoped<IGameGenreService,GameGenreService>();
+
+            services.AddScoped<IGameTagRepository,GameTagRepository>();
+            services.AddScoped<IGameTagService,GameTagService>();
+
+            services.AddScoped<ICustomerRoleRepository,CustomerRoleRepository>();
+            services.AddScoped<ICustomerRoleService,CustomerRoleService>();
+            
             services.AddScoped<AppDbContext,AppDbContext>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));

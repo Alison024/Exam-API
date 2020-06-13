@@ -7,8 +7,9 @@ namespace Solution.Domain.IServices
     public interface ICustomerRoleService
     {
         Task<IEnumerable<CustomerRole>> GetAllAsync();
+        Task<IEnumerable<CustomerRole>> GetRolesOfCustomer(int id);
         Task<CustomerRoleResponse> SaveAsync(CustomerRole customer);
         Task<CustomerRoleResponse> UpdateAsync(CustomerRole customer);
-        Task<CustomerRoleResponse> DeleteAsync(int id);
+        Task<CustomerRoleResponse> DeleteAsync(CustomerRole customer);
     }
 }

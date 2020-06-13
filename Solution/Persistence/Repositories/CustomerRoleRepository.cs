@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Solution.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Solution.IRepositories;
+using System.Linq;
+
 namespace Solution.Persistence.Repositories
 {
     public class CustomerRoleRepository :BaseRepository, ICustomerRoleRepository
@@ -22,9 +24,14 @@ namespace Solution.Persistence.Repositories
             context.CustomerRoles.Remove(customerrole);
         }
 
-        public async Task<CustomerRole> FindById(int id)
+        public async Task<IEnumerable<CustomerRole>> Find(int id)
         {
-            return await context.CustomerRoles.FindAsync(id);
+            return await context.CustomerRoles.Where(x=>x.CustomerId==id).ToListAsync();
+        }
+
+        public async Task<CustomerRole> FindByCompatibleKey(int customerId, int roleId)
+        {
+            return await context.CustomerRoles.SingleOrDefaultAsync(x=>x.CustomerId==customerId && x.RoleId==roleId);
         }
 
         public async Task<IEnumerable<CustomerRole>> GetAllAsync()

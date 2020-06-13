@@ -9,7 +9,8 @@ namespace Solution.IRepositories
         Task<IEnumerable<GameGenre>> GetAllAsync();
         Task AddAsync(GameGenre gameGenre);
         void Update(GameGenre gameGenre);
-        Task<GameGenre> FindById(int id);
+        Task<IEnumerable<GameGenre>> Find(int gameId);
+        Task<GameGenre> FindByCompatibleKey(int gameId,int genreId);
         void Delete(GameGenre gameGenre);
     }
 }

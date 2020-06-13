@@ -9,7 +9,8 @@ namespace Solution.IRepositories
         Task<IEnumerable<CustomerRole>> GetAllAsync();
         Task AddAsync(CustomerRole customerrole);
         void Update(CustomerRole customerrole);
-        Task<CustomerRole> FindById(int id);
+        Task<IEnumerable<CustomerRole>> Find(int customerId);
+        Task<CustomerRole> FindByCompatibleKey(int customerId,int roleId);
         void Delete(CustomerRole customerrole);
     }
 }

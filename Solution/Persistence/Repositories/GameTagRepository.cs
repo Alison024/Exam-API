@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Solution.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Solution.IRepositories;
+using System.Linq;
+
 namespace Solution.Persistence.Repositories
 {
     public class GameTagRepository :BaseRepository, IGameTagRepository
@@ -22,9 +24,14 @@ namespace Solution.Persistence.Repositories
             context.GameTags.Remove(gameTag);
         }
 
-        public async Task<GameTag> FindById(int id)
+        public async Task<IEnumerable<GameTag>> Find(int id)
         {
-           return await context.GameTags.FindAsync(id);
+           return await context.GameTags.Where(x=>x.GameId==id).ToListAsync();
+        }
+
+        public async Task<GameTag> FindByCompatibleKey(int gameId, int tagId)
+        {
+            return await context.GameTags.SingleOrDefaultAsync(x=>x.GameId==gameId && x.TagId==tagId);
         }
 
         public async Task<IEnumerable<GameTag>> GetAllAsync()

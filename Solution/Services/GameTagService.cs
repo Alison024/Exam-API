@@ -16,9 +16,9 @@ namespace Solution.Services
             this.gameTagRepository =gameTagRepository;
         } 
 
-        public async Task<GameTagResponse> DeleteAsync(int id)
+        public async Task<GameTagResponse> DeleteAsync(GameTag gameTag)
         {
-            var existingGameTag = await gameTagRepository.FindById(id);
+            var existingGameTag = await gameTagRepository.FindByCompatibleKey(gameTag.GameId,gameTag.TagId);
             if (existingGameTag == null)
                 return new GameTagResponse("Game tag not found");
             try
@@ -39,6 +39,11 @@ namespace Solution.Services
             return await gameTagRepository.GetAllAsync();
         }
 
+        public async Task<IEnumerable<GameTag>> GetTagsOfGame(int id)
+        {
+            return await gameTagRepository.Find(id);
+        }
+
         public async Task<GameTagResponse> SaveAsync(GameTag gameTag)
         {
             try{
@@ -54,7 +59,7 @@ namespace Solution.Services
 
         public async Task<GameTagResponse> UpdateAsync(GameTag gameTag)
         {
-            var existinggameTag = await gameTagRepository.FindById(gameTag.GameId);
+            var existinggameTag = await gameTagRepository.FindByCompatibleKey(gameTag.GameId,gameTag.TagId);
             if (existinggameTag == null)
                 return new GameTagResponse("Game tag not found");
             

@@ -10,6 +10,18 @@ GET https://localhost:5001/api/sales
 ###
 GET https://localhost:5001/api/roles 
 ###
+GET https://localhost:5001/api/tagmanager 
+###
+GET https://localhost:5001/api/genremanager 
+###
+GET https://localhost:5001/api/rolemanager 
+###
+GET https://localhost:5001/api/tagmanager/2
+###
+GET https://localhost:5001/api/genremanager/2
+###
+GET https://localhost:5001/api/rolemanager/2
+###
 DELETE  https://localhost:5001/api/genres/1
 ###
 DELETE https://localhost:5001/api/games/1

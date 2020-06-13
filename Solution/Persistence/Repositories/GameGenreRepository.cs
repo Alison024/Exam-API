@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Solution.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Solution.IRepositories;
+using System.Linq;
+
 namespace Solution.Persistence.Repositories
 {
     public class GameGenreRepository :BaseRepository, IGameGenreRepository
@@ -22,9 +24,14 @@ namespace Solution.Persistence.Repositories
             context.GameGenres.Remove(gameGenre);
         }
         //возможно ошибка
-        public async Task<GameGenre> FindById(int id)
+        public async Task<IEnumerable<GameGenre>> Find(int id)
         {
-            return await context.GameGenres.FindAsync(id);
+            return await context.GameGenres.Where(x=>x.GameId==id).ToListAsync();
+        }
+
+        public async Task<GameGenre> FindByCompatibleKey(int gameId, int genreId)
+        {
+            return await context.GameGenres.SingleOrDefaultAsync(x=>x.GameId==gameId && x.GenreId==genreId);
         }
 
         public async Task<IEnumerable<GameGenre>> GetAllAsync()

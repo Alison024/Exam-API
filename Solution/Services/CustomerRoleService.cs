@@ -16,9 +16,9 @@ namespace Solution.Services
             this.customerRoleRepository =customerRoleRepository;
         } 
 
-        public async Task<CustomerRoleResponse> DeleteAsync(int id)
+        public async Task<CustomerRoleResponse> DeleteAsync(CustomerRole customerRole)
         {
-            var existingcustomerRole = await customerRoleRepository.FindById(id);
+            var existingcustomerRole = await customerRoleRepository.FindByCompatibleKey(customerRole.CustomerId,customerRole.RoleId);
             if (existingcustomerRole == null)
                 return new CustomerRoleResponse("Customer's roles not found");
             try
@@ -39,6 +39,11 @@ namespace Solution.Services
             return await customerRoleRepository.GetAllAsync();
         }
 
+        public async  Task<IEnumerable<CustomerRole>> GetRolesOfCustomer(int id)
+        {
+            return await customerRoleRepository.Find(id);
+        }
+
         public async Task<CustomerRoleResponse> SaveAsync(CustomerRole customerRole)
         {
             try{
@@ -52,9 +57,9 @@ namespace Solution.Services
             
         }
 
-        public async Task<CustomerRoleResponse> UpdateAsync(CustomerRole gameTag)
+        public async Task<CustomerRoleResponse> UpdateAsync(CustomerRole customerRole)
         {
-            var existingcustomerRole = await customerRoleRepository.FindById(gameTag.CustomerId);
+            var existingcustomerRole = await customerRoleRepository.FindByCompatibleKey(customerRole.CustomerId,customerRole.RoleId);
             if (existingcustomerRole == null)
                 return new CustomerRoleResponse("Customer role not found");
             

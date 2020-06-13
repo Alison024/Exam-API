@@ -9,7 +9,8 @@ namespace Solution.IRepositories
         Task<IEnumerable<GameTag>> GetAllAsync();
         Task AddAsync(GameTag gameTag);
         void Update(GameTag gameTag);
-        Task<GameTag> FindById(int id);
+        Task<IEnumerable<GameTag>> Find(int gameId);
+        Task<GameTag> FindByCompatibleKey(int gameId,int tagId);
         void Delete(GameTag gameTag);
     }
 }
