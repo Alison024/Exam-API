@@ -9,6 +9,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 namespace Solution.Controllers
 {
+    [Authorize(Roles="admin")]
     [Route("/api/rolemanager")]
     public class RoleManagerController:Controller
     {

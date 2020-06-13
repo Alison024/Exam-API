@@ -6,7 +6,7 @@ using Solution.Resources;
 using System.Threading.Tasks;
 using Solution.Extensions;
 using AutoMapper;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Solution.Controllers
 {
     [Route("/api/customers")]
@@ -22,6 +22,7 @@ namespace Solution.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles="admin,manager")]
         public async Task<IEnumerable<CustomerResourse>> GetAllAsync()
         {
             var customers = await customerService.GetAllAsync();
@@ -30,6 +31,7 @@ namespace Solution.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> PostAsync([FromBody] AuthCustomerResourse resource)
         {
             if (!ModelState.IsValid)
@@ -46,6 +48,7 @@ namespace Solution.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> PutAsync([FromBody] AuthCustomerResourse resource)
         {
             if (!ModelState.IsValid)
@@ -62,6 +65,7 @@ namespace Solution.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await customerService.DeleteAsync(id);

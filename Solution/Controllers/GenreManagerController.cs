@@ -32,6 +32,7 @@ namespace Solution.Controllers
             return gameResources;
         }
         [HttpPost]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> PostAsync([FromBody] GameGenreResource resource)
         {
             if (!ModelState.IsValid)
@@ -48,6 +49,7 @@ namespace Solution.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> PutAsync([FromBody] GameGenreResource resource)
         {
             if (!ModelState.IsValid)
@@ -64,6 +66,7 @@ namespace Solution.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> DeleteAsync([FromBody]GameGenreResource resource)
         {   
             var gamegenre = mapper.Map<GameGenreResource, GameGenre>(resource);

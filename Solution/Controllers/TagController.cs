@@ -26,6 +26,7 @@ namespace Solution.Controllers
             var tagResourses = mapper.Map<IEnumerable<Tag>,IEnumerable<TagResourse>>(tags);
             return tagResourses;
         }
+        [Authorize(Roles="admin")]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] TagResourse resource){
             if(!ModelState.IsValid){
@@ -40,6 +41,7 @@ namespace Solution.Controllers
             var tagResourses = mapper.Map<Tag,TagResourse>(result.Tag);
             return Ok(tagResourses);
         }
+        [Authorize(Roles="admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync([FromBody] TagResourse resource)
         {
@@ -55,7 +57,7 @@ namespace Solution.Controllers
             var tagResourses = mapper.Map<Tag, TagResourse>(result.Tag);
             return Ok(tagResourses);
         }
-
+        [Authorize(Roles="admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

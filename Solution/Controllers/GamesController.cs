@@ -28,6 +28,7 @@ namespace Solution.Controllers
             return gameResources;
         }
         [HttpPost]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> PostAsync([FromBody] GameResource resource)
         {
             if (!ModelState.IsValid)
@@ -43,6 +44,7 @@ namespace Solution.Controllers
             return Ok(categoryResource);
         }
 
+        [Authorize(Roles="admin,manager")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync([FromBody] GameResource resource)
         {
@@ -61,6 +63,7 @@ namespace Solution.Controllers
 
         /*[Authorize(Roles="admin")]*/
         [HttpDelete("{id}")]
+        [Authorize(Roles="admin,manager")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await gameServices.DeleteAsync(id);

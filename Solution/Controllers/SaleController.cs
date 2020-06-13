@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 namespace Solution.Controllers
 {
+    [Authorize(Roles="admin,manager")]
     [Route("/api/sales")]
     public class SaleController:Controller
     {

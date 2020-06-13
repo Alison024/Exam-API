@@ -29,6 +29,7 @@ namespace Solution.Controllers
             return genreResources;
         }
         [HttpPost]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> PostAsync([FromBody] GenreResource resource){
             if(!ModelState.IsValid){
                 return BadRequest(ModelState.GetErrorMessages());
@@ -43,6 +44,7 @@ namespace Solution.Controllers
             return Ok(genreResources);
         }
         [HttpPut("{id}")]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> PutAsync([FromBody] GenreResource resource)
         {
             if (!ModelState.IsValid)
@@ -59,6 +61,7 @@ namespace Solution.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles="admin")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await genreServices.DeleteAsync(id);
