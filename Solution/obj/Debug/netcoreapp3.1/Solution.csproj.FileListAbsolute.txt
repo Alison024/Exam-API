@@ -61,3 +61,14 @@ D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.Identit
 D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\System.Web.Http.WebHost.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
+D:\Projects\Exam API\Exam-API\Solution\bin\Debug\netcoreapp3.1\WebActivatorEx.dll
+D:\Projects\Exam API\Exam-API\Solution\obj\Debug\netcoreapp3.1\Solution.MvcApplicationPartsAssemblyInfo.cs

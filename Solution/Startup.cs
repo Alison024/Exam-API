@@ -22,6 +22,8 @@ using Solution.Services;
 using Solution.Persistence.Repositories;
 using Solution.Helpers;
 using AutoMapper;
+using Microsoft.OpenApi.Models;
+
 namespace Solution
 {
     public class Startup
@@ -85,6 +87,11 @@ namespace Solution
             services.AddScoped<AppDbContext,AppDbContext>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Game Shop Api", Version = "v1" });
+            });
             
         }
 
@@ -95,7 +102,6 @@ namespace Solution
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -105,6 +111,13 @@ namespace Solution
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Game Shop API");
+                c.RoutePrefix = string.Empty;
             });
         }
     }
